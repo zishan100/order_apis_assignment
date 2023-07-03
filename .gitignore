@@ -1,3 +1,6 @@
 package-lock.json
-node_modules
+node_modules/
 .env
+.dockerignore
+docker-compose.dev.yml
+docker-compose.backup.yml
