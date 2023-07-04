@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mongoose = require("mongoose");
 const logger = require("../app/utils/logger.utils");
 const {  DB_NAME , DB_USER , DB_HOST , DB_PASSWORD , DB_PORT } = process.env;
