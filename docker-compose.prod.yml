@@ -10,11 +10,6 @@ services:
         NODE_ENV: production
     environment:
       - NODE_ENV=production
-      - DB_NAME=${DB_NAME}
-      - DB_HOST=${DB_HOST}
-      - DB_USER=${DB_USER}
-      - DB_PASSWORD=${DB_PASSWORD}
-      - DB_PORT=${DB_PORT}
     command: node index.js  
   mongodb:
    environment:
