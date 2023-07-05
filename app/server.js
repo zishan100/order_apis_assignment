@@ -40,8 +40,7 @@ if (logger) {
 require("./routes/index")(app);
 
 app.get("/", (req, res) => {
-  console.log("I am in");
-  return res.status(200).send(`<h4>Welcome to Order App using node,express & MongoDB (Running on ${process.env.NODE_ENV} server !!!! )  </h4>`);
+    return res.status(200).send(`<h4>Welcome to Order App using node,express & MongoDB (Running on ${process.env.NODE_ENV} servers)  </h4>`);
 });
 
 module.exports = app;
