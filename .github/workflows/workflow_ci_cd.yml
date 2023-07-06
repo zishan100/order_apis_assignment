@@ -24,6 +24,11 @@ jobs:
           echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
           docker-compose -f docker-compose.yml -f docker-compose.prod.yml push node-app
 
+      - name: Set up SSH key
+        uses: webfactory/ssh-agent@v0.5.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          
       - name: Deploy to EC2 instance
         uses: appleboy/ssh-action@master
         with:
@@ -31,6 +36,8 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            ssh -o StrictHostKeyChecking=no $host "sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml pull node-app"
-            ssh -o StrictHostKeyChecking=no $host "sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --no-deps node-app" 
+            cd order_apis_assignment
+            git pull
+            sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml pull node-app
+            sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --no-deps node-app 
     
