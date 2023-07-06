@@ -28,9 +28,9 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.EC2_IP }}
-          username: i-0f86ae10e3f2b23e6
+          username: ubuntu@13.126.175.220
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            ssh -o StrictHostKeyChecking=no $host "docker-compose -f docker-compose.yml -f docker-compose.prod.yml pull node-app"
-            ssh -o StrictHostKeyChecking=no $host "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --no-deps node-app" 
+            ssh -o StrictHostKeyChecking=no $host "sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml pull node-app"
+            ssh -o StrictHostKeyChecking=no $host "sudo docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d --no-deps node-app" 
     
