@@ -40,7 +40,8 @@ if (logger) {
 require("./routes/index")(app);
 
 app.get("/", (req, res) => {
-    return res.status(200).send(`<h4>Welcome to Order App ${process.env.NODE_ENV} servers </h4>`);
+    console.log("I am in ...");
+    return res.status(200).send(`<h4>Welcome to Order App ${process.env.NODE_ENV} servers !!! </h4>`);
 });
 
 module.exports = app;
