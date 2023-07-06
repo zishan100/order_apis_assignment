@@ -41,7 +41,7 @@ require("./routes/index")(app);
 
 app.get("/", (req, res) => {
     console.log("I am in");
-    return res.status(200).send(`<h4>Welcome to Order App !!!</h4>`);
+    return res.status(200).send(`<h4>Welcome to Order App ${process.env.NODE_ENV} server !!! </h4>`);
 });
 
 module.exports = app;
