@@ -8,6 +8,7 @@ services:
       context: .
       args:
         NODE_ENV: production
+    image: zishan123/node-app
     environment:
       - NODE_ENV=production
       - PORT=${PORT}
